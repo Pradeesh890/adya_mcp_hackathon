@@ -5,13 +5,20 @@ ClientsConfig =[
 ]
 ServersConfig = [
 	{
-		"server_name": "MCP-GSUITE",
+		"server_name": "MYSQL",
 		"command":"uv",
 		"args": [
 			"--directory",
-			"../servers/MCP-GSUITE/mcp-gsuite",
+			"D:/adya_mcp_hackathon/mcp_servers/python/servers/MYSQL/src/mysql_mcp_server",
 			"run",
-			"mcp-gsuite"
-		]
+			"mysql_mcp_server"
+		],
+		"env": {
+			"MYSQL_HOST": "localhost",
+			"MYSQL_PORT": "3306",
+			"MYSQL_USER": "test",
+			"MYSQL_PASSWORD": "test123",
+			"MYSQL_DATABASE": "my_db"
+		}
 	}
 ]

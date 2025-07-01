@@ -16,10 +16,15 @@
 							"name": "Non-Stream Api",
 							"request": {
 								"method": "POST",
-								"header": [],
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"selected_server_credentials\": {\r\n        \"WORDPRESS\": {\r\n            \"siteUrl\": \"\",\r\n            \"username\": \"\",\r\n            \"password\": \"\"\r\n        }\r\n        //  \"G_DRIVE\": {\r\n        //     \"web\": {\r\n        //         \"client_id\":\"\",\r\n        //         \"client_secret\":\"\",\r\n        //         \"refresh_token\": \"\",\r\n        //         \"access_token\": \"\"\r\n        //     }\r\n        // }\r\n    },\r\n    \"client_details\": {\r\n        \"api_key\": \"\",\r\n        \"temperature\": 0.1,\r\n        \"max_token\":20000,\r\n        \"input\": \"use the credentials which user already provided ,on my G Drive, search for 'POA June 2025' google sheet and let me know whether available or not if available get the some data\",\r\n        \"input_type\": \"text\",\r\n        \"prompt\": \"you are a helpful assistant\",\r\n        \"chat_model\": \"gemini-2.0-flash-lite\",\r\n        \"chat_history\": [\r\n            {\r\n                \"role\": \"user\",\r\n                \"content\": \"Hii\"\r\n            }\r\n        ]\r\n    },\r\n    \"selected_client\": \"MCP_CLIENT_GEMINI\",\r\n    \"selected_servers\": [\r\n        \"WORDPRESS\"\r\n    ]\r\n}",
+									"raw": "{\n    \"selected_server_credentials\": {\n        \"MYSQL\": {\n            \"MYSQL_HOST\": \"localhost\",\n            \"MYSQL_PORT\": \"3306\",\n            \"MYSQL_USER\": \"test\",\n            \"MYSQL_PASSWORD\": \"test123\",\n            \"MYSQL_DATABASE\": \"my_db\"\n        }\n    },\n    \"client_details\": {\n        \"api_key\": \"<YOUR_GEMINI_API_KEY>\",\n        \"temperature\": 0.1,\n        \"max_token\":20000,\n        \"input\": \"List all tables in the database\",\n        \"input_type\": \"text\",\n        \"prompt\": \"You are a helpful assistant for MySQL database operations.\",\n        \"chat_model\": \"gemini-2.0-flash-lite\",\n        \"chat_history\": [\n            {\n                \"role\": \"user\",\n                \"content\": \"Hello\"\n            }\n        ]\n    },\n    \"selected_client\": \"MCP_CLIENT_GEMINI\",\n    \"selected_servers\": [\n        \"MYSQL\"\n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -27,45 +32,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{dev-js-host}}/api/v1/mcp/process_message",
-									"host": [
-										"{{dev-js-host}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"mcp",
-										"process_message"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Non-Stream Api -python",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"selected_server_credentials\": {\r\n        \"MCP-GSUITE\": {\r\n            \"token\": \"\",\r\n            \"refresh_token\": \"\",\r\n            \"client_id\": \"\",\r\n            \"client_secret\": \"\"\r\n        }\r\n        // \"WORDPRESS\": {\r\n        //     \"siteUrl\": \"\",\r\n        //     \"username\": \"\",\r\n        //     \"password\": \"\"\r\n        // }\r\n        //  \"G_DRIVE\": {\r\n        //     \"web\": {\r\n        //         \"client_id\":\"\",\r\n        //         \"client_secret\":\"\",\r\n        //         \"refresh_token\": \"\",\r\n        //         \"access_token\": \"\"\r\n        //     }\r\n        // }\r\n    },\r\n    \"client_details\": {\r\n        \"api_key\": \"\",\r\n        \"temperature\": 0.1,\r\n        \"max_token\": 20000,\r\n        \"input\": \"get the recent one email\",\r\n        \"input_type\": \"text\",\r\n        \"prompt\": \"you are a helpful assistant\",\r\n        \"chat_model\": \"gemini-2.0-flash\",\r\n        \"chat_history\": [\r\n            {\r\n                \"role\": \"user\",\r\n                \"content\": \"Hii\"\r\n            }\r\n        ]\r\n    },\r\n    \"selected_client\": \"MCP_CLIENT_GEMINI\",\r\n    \"selected_servers\": [\r\n        \"MCP-GSUITE\"\r\n    ]\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{dev-python-host}}/api/v1/mcp/process_message",
-									"host": [
-										"{{dev-python-host}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"mcp",
-										"process_message"
-									]
+									"raw": "http://localhost:8000/api/v1/mcp/process_message",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "8000",
+									"path": ["api", "v1", "mcp", "process_message"]
 								}
 							},
 							"response": []
@@ -74,10 +45,15 @@
 							"name": "Stream API",
 							"request": {
 								"method": "POST",
-								"header": [],
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"selected_server_credentials\": {\r\n        \"WORDPRESS\": {\r\n            \"siteUrl\": \"\",\r\n            \"username\": \"\",\r\n            \"password\": \"\"\r\n        }\r\n        //  \"G_DRIVE\": {\r\n        //     \"web\": {\r\n        //         \"client_id\":\"\",\r\n        //         \"client_secret\":\"\",\r\n        //         \"refresh_token\": \"\",\r\n        //         \"access_token\": \"\"\r\n        //     }\r\n        // }\r\n    },\r\n    \"client_details\": {\r\n        \"api_key\": \"\",\r\n        \"temperature\": 0.1,\r\n        \"max_token\":20000,\r\n        \"input\": \"get the recent published post\",\r\n        \"input_type\": \"text\",\r\n        \"prompt\": \"you are a helpful assistant\",\r\n        \"chat_model\": \"gemini-2.0-flash-lite\",\r\n        \"chat_history\": [\r\n            {\r\n                \"role\": \"user\",\r\n                \"content\": \"Hii\"\r\n            }\r\n        ]\r\n    },\r\n    \"selected_client\": \"MCP_CLIENT_GEMINI\",\r\n    \"selected_servers\": [\r\n        \"WORDPRESS\"\r\n    ]\r\n}",
+									"raw": "{\n    \"selected_server_credentials\": {\n        \"MYSQL\": {\n            \"MYSQL_HOST\": \"localhost\",\n            \"MYSQL_PORT\": \"3306\",\n            \"MYSQL_USER\": \"test\",\n            \"MYSQL_PASSWORD\": \"test123\",\n            \"MYSQL_DATABASE\": \"my_db\"\n        }\n    },\n    \"client_details\": {\n        \"api_key\": \"<YOUR_GEMINI_API_KEY>\",\n        \"temperature\": 0.1,\n        \"max_token\":20000,\n        \"input\": \"List all tables in the database\",\n        \"input_type\": \"text\",\n        \"prompt\": \"You are a helpful assistant for MySQL database operations.\",\n        \"chat_model\": \"gemini-2.0-flash-lite\",\n        \"chat_history\": [\n            {\n                \"role\": \"user\",\n                \"content\": \"Hello\"\n            }\n        ]\n    },\n    \"selected_client\": \"MCP_CLIENT_GEMINI\",\n    \"selected_servers\": [\n        \"MYSQL\"\n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -85,16 +61,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{dev-js-host}}/api/v1/mcp/process_message_stream",
-									"host": [
-										"{{dev-js-host}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"mcp",
-										"process_message_stream"
-									]
+									"raw": "http://localhost:8000/api/v1/mcp/process_message_stream",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "8000",
+									"path": ["api", "v1", "mcp", "process_message_stream"]
 								}
 							},
 							"response": []
@@ -279,6 +250,35 @@
 										"mcp",
 										"process_message_stream"
 									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "MYSQL",
+					"item": [
+						{
+							"name": "Non-Stream Api",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"selected_server_credentials\": {\n        \"MYSQL\": {\n            \"MYSQL_HOST\": \"localhost\",\n            \"MYSQL_PORT\": \"3306\",\n            \"MYSQL_USER\": \"test\",\n            \"MYSQL_PASSWORD\": \"test123\",\n            \"MYSQL_DATABASE\": \"my_db\"\n        }\n    },\n    \"client_details\": {\n        \"input\": \"List all tables in the database\",\n        \"input_type\": \"text\",\n        \"prompt\": \"You are a helpful assistant for MySQL database operations.\",\n        \"chat_history\": [\n            {\n                \"role\": \"user\",\n                \"content\": \"Hello\"\n            }\n        ]\n    },\n    \"selected_client\": \"MCP_CLIENT_OPENAI\",\n    \"selected_servers\": [\n        \"MYSQL\"\n    ]\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/mcp/process_message",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "8000",
+									"path": ["api", "v1", "mcp", "process_message"]
 								}
 							},
 							"response": []
